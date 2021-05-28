@@ -1,6 +1,6 @@
 specVersion: 0.0.2
-description: Compound governance subgraph
-repository: https://github.com/protofire/compound-governance-subgraph
+description: Gitcoin governance subgraph
+repository: https://github.com/gitcoinco/gitcoin-governance-subgraph
 schema:
   file: ./schema.graphql
 dataSources:
@@ -8,9 +8,9 @@ dataSources:
     name: GovernorAlpha
     network: mainnet
     source:
-      address: "0xc0da01a04c3f3e0be433606045bb7017a7323e38"
+      address: "0xDbD27635A534A3d3169Ef0498beB56Fb9c937489"
       abi: GovernorAlpha
-      startBlock: 9601459
+      startBlock: 12497481
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.3
@@ -37,12 +37,12 @@ dataSources:
         - event: VoteCast(address,uint256,bool,uint256)
           handler: handleVoteCast
   - kind: ethereum/contract
-    name: CompoundToken
+    name: GTCToken
     network: mainnet
     source:
-      address: "0xc00e94cb662c3520282e6f5717214004a7f26888"
-      abi: CompoundToken
-      startBlock: 9601359
+      address: "0xDe30da39c46104798bB5aA3fe8B9e0e1F348163F"
+      abi: GTCToken
+      startBlock: 12422079
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.3
@@ -52,8 +52,8 @@ dataSources:
         - Delegate
         - TokenHolder
       abis:
-        - name: CompoundToken
-          file: ./abis/CompoundToken.json
+        - name: GTCToken
+          file: ./abis/GTCToken.json
       eventHandlers:
         - event: DelegateChanged(indexed address,indexed address,indexed address)
           handler: handleDelegateChanged
